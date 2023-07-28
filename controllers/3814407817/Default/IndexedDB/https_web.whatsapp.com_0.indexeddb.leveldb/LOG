@@ -1,0 +1,6 @@
+2022/12/29-14:30:34.942 90 Creating DB C:\Users\PC-User\Desktop\BACKEND-WAN2022-V2-master\controllers\3814407817\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb since it was missing.
+2022/12/29-14:30:34.946 90 Reusing MANIFEST C:\Users\PC-User\Desktop\BACKEND-WAN2022-V2-master\controllers\3814407817\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/12/29-14:30:35.017 2f14 Level-0 table #5: started
+2022/12/29-14:30:35.020 2f14 Level-0 table #5: 7006 bytes OK
+2022/12/29-14:30:35.022 2f14 Delete type=0 #3
+2022/12/29-14:30:35.033 2f14 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
