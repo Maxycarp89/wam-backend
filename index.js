@@ -9,9 +9,9 @@ const {Client,LocalAuth,MessageMedia}= require('whatsapp-web.js');
 const routes = require("./routes");
 const { getCampaing } = require("./db/consultar");
 const { clientes } = require("./controllers/clientwp");
-//const { get } = require('./routes');
-//const { send } = require('process');
-//const { Console } = require('console');
+const { get } = require('./routes');
+const { send } = require('process');
+const { Console } = require('console');
 //clientes[0].clienteString.authStrategy.clientId
 ///server
 app.use(cors());
@@ -24,14 +24,14 @@ app.use(express.json());
 // cuando el mismo se compone de un form data (application/x-www-form-urlencoded)
 app.use(express.urlencoded({ extended: false }));
 
-/*app.use(async (req,res,next)=>{
+app.use(async (req,res,next)=>{
     console.log('prueba')
     const respuesta= await getCampaing(9);
     console.log(respuesta);
 
     next();
 
-});*/
+});
 
 let respuesta = "";
 
@@ -53,9 +53,9 @@ const cliente= new Client({
     cliente.on('message', msg =>{        
         const {from,to,body}=msg;
 
-        //if(msg.body==='1'){
-        //    cliente.sendMessage(msg.from,respuesta)
-       // }
+        if(msg.body==='1'){
+            cliente.sendMessage(msg.from,respuesta)
+        }
 
         //if(msg.body==='2'){
         //    cliente.sendMessage(msg.from,"Recibi 2")
@@ -89,7 +89,7 @@ app.post("/enviarmsg", (req, res) => {
 app.use("/api/v1", routes);
 
 //desactivo estas rutas que se van adireccionar desde routes
-/*app.post('/api/v1/uploadImage',routes)
+/* app.post('/api/v1/uploadImage',routes)
 
 app.post('/api/v1/sendMessages',(req,res)=>{
     const {numbers,campaingMessage,filename,responseOne}=req.body;
@@ -98,7 +98,7 @@ app.post('/api/v1/sendMessages',(req,res)=>{
     res.send(req.body);
     enviarmensajes(numbers,campaingMessage,filename,0)    
 })
-*/
+ */
 
 let posicion = 0,
     bandera = 0;
@@ -127,7 +127,7 @@ const recorrer1 = (data, msge, filename) => {
 
     console.log(data[posicion]);
     setTimeout(() => {
-        //let ruta=path.join("file",filename);
+        let ruta=path.join("file",filename);
         //let adjunto= MessageMedia.fromFilePath(ruta);
 
         let adjunto = MessageMedia.fromFilePath(`public/${filename.trim()}`);
@@ -162,9 +162,9 @@ function enviarmensajes(data, msge, filename, comenzar) {
     console.log("funcion enviar mensaje", filename);
 
     if (bandera == 0) {
-        //const cliente= new Client({
-        //    authStrategy: new LocalAuth()
-        //    });
+        const cliente= new Client({
+         authStrategy: new LocalAuth()
+           });
 
         console.log("Enviar Mensajes abndera 0!!!");
         // cliente.on('ready',()=>{

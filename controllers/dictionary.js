@@ -15,5 +15,5 @@ exports.dictionary = async () => {
           };
           numberDictionary.push(obj);
       });
-      return await numberDictionary
+      return numberDictionary
   };
